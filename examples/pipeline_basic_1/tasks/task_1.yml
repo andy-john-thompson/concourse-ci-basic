@@ -2,7 +2,11 @@
 platform: linux
 image_resource:
     type: docker-image
-    source: {repository: busybox}              
+    source: {repository: busybox}
+
+inputs:
+    - name: git_scm_resource
+
 run:
     path: /bin/sh
-    args: ["./task_scripts/compile_code.sh"]
+    args: ["./git_scm_resource/task_scripts/compile_code.sh"]
