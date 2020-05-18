@@ -12,3 +12,6 @@ jobs:
     - get: git_scm_resource
     - task: task-compile-code
       file: git_scm_resource/examples/pipeline_basic_1/tasks/task_1.yml
+    - task: task-show-artifacts
+      file: git_scm_resource/examples/pipeline_basic_1/tasks/task_2.yml
+
