@@ -136,4 +136,5 @@ Looks like you need to use vault here (other options are available). Info in tut
 * Currently it looks like there is no default support for multibranch pipelines (although this is a work in progress to support this). Therefore you have to ensure you architect your CI/CD model to take this into consideration before any implementation.
 * You must use a secrets provider, as secrets passed as variables could be read by a user who can download the yaml files from the Concourse Server
 * Some of the resource types look very useful - https://resource-types.concourse-ci.org/
-  * Eg Terraform, Artifactory, S3, Git, Github
+  * Eg Terraform, Artifactory, S3, Git, Github, Slack, K8s
+  * Notably there is not an MS Teams resource type shown here
