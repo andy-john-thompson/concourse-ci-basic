@@ -8,5 +8,5 @@ inputs:
     - name: git_scm_resource
 
 run:
-    path: /bin/sh
-    args: ["ls"]
+    path: ls
+    args: ["-al"]
