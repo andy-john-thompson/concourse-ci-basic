@@ -9,4 +9,4 @@ inputs:
 
 run:
     path: /bin/sh
-    args: ["./git_scm_resource/task_scripts/compile_code.sh"]
+    args: ["ls git_scm_resource"]
