@@ -9,4 +9,4 @@ inputs:
 
 run:
     path: /bin/sh
-    args: ["ls git_scm_resource"]
+    args: ["ls"]
