@@ -6,7 +6,7 @@ resources:
     type: git
     source:
       uri: https://github.com/andy-john-thompson/concourse-ci-basic.git
-      branch: master
+
 jobs:
   - name: job-build-test-deploydev
     public: true
