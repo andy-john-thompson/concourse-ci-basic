@@ -1,0 +1,20 @@
+---
+resources:
+  - name: git_scm_resource
+    type: git
+    source:
+      uri: https://github.com/andy-john-thompson/concourse-ci-basic.git
+      branch: master
+jobs:
+  - name: job-compile-code
+    public: true
+    plan:
+    - get: git_scm_resource
+      trigger: true
+    - task: task-compile-code
+      file: git_scm_resource/examples/pipeline_basic_2/tasks/task_compile_code.yml
+    - task: task-test-artifact
+      file: git_scm_resource/examples/pipeline_basic_2/tasks/task_test_artifact.yml
+    - task: task-deploy-artifact
+      file: git_scm_resource/examples/pipeline_basic_2/tasks/task_deploy_artifact.yml
+# `fly --target my_concourse_server set-pipeline --config "examples/pipeline_basic_2/pipeline/pipeline.yml" -p "example2-pipeline"`

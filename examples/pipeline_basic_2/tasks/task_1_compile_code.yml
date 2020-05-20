@@ -1,0 +1,14 @@
+---
+platform: linux
+image_resource:
+    type: docker-image
+    source: {repository: busybox}
+
+inputs:
+    - name: git_scm_resource
+outputs:
+    - name: my-build-artifacts
+
+run:
+    path: /bin/sh
+    args: ["git_scm_resource/examples/pipeline_basic_2/task_scripts/compile_code.sh"]
