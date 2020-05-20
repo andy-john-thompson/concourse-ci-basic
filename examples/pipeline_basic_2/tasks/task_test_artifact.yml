@@ -6,7 +6,6 @@ image_resource:
 
 inputs:
     - name: git_scm_resource
-outputs:
     - name: my-build-artifacts
 
 run:
