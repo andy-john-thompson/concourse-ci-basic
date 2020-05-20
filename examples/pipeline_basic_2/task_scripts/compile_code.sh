@@ -12,5 +12,3 @@ echo "this is the compiled artifact" > "my-build-artifacts/product.txt"
 
 echo "check the contents of the my-build-artifacts folder again"
 ls "my-build-artifacts"
-
-ls -al git_scm_resource
