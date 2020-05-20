@@ -19,6 +19,14 @@ jobs:
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_test_artifact.yml
     - task: task-deploy-artifact
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_deploy_artifact.yml
+
+  - name: job-some-other-stage
+    public: true
+    plan:
+    - get: git_scm_resource
+      trigger: true
+    - task: task-show-git-info
+      file: git_scm_resource/examples/pipeline_basic_2/tasks/task_show_git_info.yml
   
   - name: job-final-stage
     public: true
@@ -26,6 +34,7 @@ jobs:
     - get: git_scm_resource
       passed:
         - job-build-test-deploydev
+        - job-some-other-stage
       trigger: true
     - task: task-show-git-info
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_show_git_info.yml
