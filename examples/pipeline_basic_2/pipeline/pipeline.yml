@@ -1,4 +1,6 @@
 ---
+# fly --target my_concourse_server set-pipeline --config "examples/pipeline_basic_2/pipeline/pipeline.yml" -p "example2-pipeline"
+
 resources:
   - name: git_scm_resource
     type: git
@@ -6,7 +8,7 @@ resources:
       uri: https://github.com/andy-john-thompson/concourse-ci-basic.git
       branch: master
 jobs:
-  - name: job-compile-code
+  - name: job-build-test-deploydev
     public: true
     plan:
     - get: git_scm_resource
@@ -17,6 +19,12 @@ jobs:
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_test_artifact.yml
     - task: task-deploy-artifact
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_deploy_artifact.yml
+  
+  - name: job-final-stage
+    public: true
+    plan:
+    - get: git_scm_resource
+      passed:
+        - job-build-test-deploydev
     - task: task-show-git-info
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_show_git_info.yml
-# `fly --target my_concourse_server set-pipeline --config "examples/pipeline_basic_2/pipeline/pipeline.yml" -p "example2-pipeline"`
