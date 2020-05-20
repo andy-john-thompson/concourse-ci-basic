@@ -26,5 +26,6 @@ jobs:
     - get: git_scm_resource
       passed:
         - job-build-test-deploydev
+      trigger: true
     - task: task-show-git-info
       file: git_scm_resource/examples/pipeline_basic_2/tasks/task_show_git_info.yml
